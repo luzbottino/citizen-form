@@ -8,10 +8,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'citizen-form';
-  users = [];
+  users;
+  cadastrado;
   constructor(httpClient: HttpClient) {
-    httpClient.get<Array<any>>('https://citizen-form-api.azurewebsites.net/users').subscribe(data => {
+    
+    httpClient.get<any>('https://citizen-form-api.azurewebsites.net/users').subscribe(data => {
       this.users = data
+    })
+
+    httpClient.post<any>('https://citizen-form-api.azurewebsites.net/users', {first_name: 'Luis'}).subscribe(data => {
+      this.cadastrado = data
     })
   }
 }

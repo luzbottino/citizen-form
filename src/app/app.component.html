@@ -298,10 +298,14 @@
   }
 </style>
 <h1>  
-  <ul *ngFor="let user of users">
+  <ul *ngFor="let user of users.users">
     <li>{{user.name}}</li>
   </ul>
 </h1>
+
+<h2>
+  {{cadastrado | json}}
+</h2>
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
